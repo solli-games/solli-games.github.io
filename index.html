@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solli-Games | Play Beyond Limits</title>
+<meta name="description" content="Solli-Games — 14 solo mini-games, live multiplayer servers, SI Coins, game passes and Google sign-in.">
+<meta name="theme-color" content="#090b14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ffd76a'/><stop offset='1' stop-color='%23d98e04'/></linearGradient></defs><circle cx='32' cy='32' r='28' fill='url(%23g)' stroke='%238a5a00' stroke-width='3'/><text x='32' y='44' text-anchor='middle' font-family='Arial Black,Arial' font-size='30' font-weight='900' fill='%237a4a00'>J</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <button class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar">‹</button>
+    <a class="brand" href="#home" data-page="home" title="Solli-Games">
+      <svg class="cube-logo" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="cubeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent2)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs>
+        <rect x="5" y="5" width="54" height="54" rx="13" fill="url(#cubeGrad)"/>
+        <g class="cube-face">
+          <rect class="cube-eye" x="19" y="22" width="8" height="11" rx="2.5" fill="#0a0d18"/>
+          <rect class="cube-eye" x="37" y="22" width="8" height="11" rx="2.5" fill="#0a0d18"/>
+          <path d="M22 41 q10 8 20 0" stroke="#0a0d18" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <span class="brand-name">SOLLI<span>-GAMES</span></span>
+    </a>
+    <div class="side-caption">MAIN MENU</div>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-btn active" data-page="home"><span class="nav-icon">⌂</span><span class="nav-label">Home</span></button>
+      <button class="nav-btn" data-page="games"><span class="nav-icon">▦</span><span class="nav-label">Solo Arcade</span></button>
+      <button class="nav-btn" data-page="multi"><span class="nav-icon">≋</span><span class="nav-label">Multiplayer</span></button>
+      <button class="nav-btn" data-page="leaderboard"><span class="nav-icon">♛</span><span class="nav-label">Leaderboard</span></button>
+      <button class="nav-btn" data-page="shop"><span class="nav-icon">◈</span><span class="nav-label">SI Coin Shop</span></button>
+      <button class="nav-btn" data-page="profile"><span class="nav-icon">◉</span><span class="nav-label">My Player Card</span></button>
+      <button class="nav-btn" data-page="settings"><span class="nav-icon">⚙</span><span class="nav-label">Settings</span></button>
+      <button class="nav-btn hidden" id="adminNavBtn" data-page="admin"><span class="nav-icon">⛨</span><span class="nav-label">Admin Panel</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="side-caption">PLAYER ZONE</div>
+      <div class="sidebar-note">
+        <div class="note-avatar" id="sidebarAvatar">S</div>
+        <strong id="sidebarPlayerName">Guest Player</strong>
+        <p id="sidebarPlayerStatus">Earn SI Coins, buy passes, climb the board.</p>
+        <button class="btn btn-small" data-auth-btn id="sidebarAuthBtn">Sign in</button>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop hidden" id="sidebarBackdrop"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="breadcrumb" id="breadcrumb">Gaming Universe</div>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search games…  ( / )" aria-label="Search games">
+      </div>
+      <span class="coin-pill" id="topCoins" title="SI Coins"></span>
+      <button class="top-avatar" id="topAvatar" data-page="profile" aria-label="Open player profile">S</button>
+    </header>
+
+    <div class="content">
+
+      <!-- HOME -->
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="live-dot"></span> SOLO + MULTIPLAYER · SI COINS · LIVE SERVERS</div>
+            <h1>PLAY BEYOND<br><span class="gradient-text">LIMITS.</span></h1>
+            <p>14 solo games work offline. Jump on a multiplayer server to duel friends in real time — Tic-Tac-Toe, RPS, Reaction and Blue Lock Penalty duels.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-page="games">Play Solo · Offline ↗</button>
+              <button class="btn btn-primary" data-page="multi">Multiplayer · Servers ≋</button>
+              <button class="btn" data-page="shop">SI Shop ◈</button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit"></div>
+            <div class="hero-emblem">
+              <svg class="hero-cube" viewBox="0 0 64 64">
+                <defs><linearGradient id="cubeGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent2)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs>
+                <rect x="5" y="5" width="54" height="54" rx="13" fill="url(#cubeGrad2)"/>
+                <g class="cube-face">
+                  <rect class="cube-eye" x="19" y="22" width="8" height="11" rx="2.5" fill="#0a0d18"/>
+                  <rect class="cube-eye" x="37" y="22" width="8" height="11" rx="2.5" fill="#0a0d18"/>
+                  <path d="M22 41 q10 8 20 0" stroke="#0a0d18" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-top">SI COINS EARNED</div><div class="stat-number" id="statCoins"></div><div class="stat-note">Spend them in the shop</div></div>
+          <div class="stat-card"><div class="stat-top">PERSONAL BEST</div><div class="stat-number" id="statBest">0</div><div class="stat-note">Your highest score</div></div>
+          <div class="stat-card"><div class="stat-top">GAMES TO EXPLORE</div><div class="stat-number" id="statGames">14</div><div class="stat-note">Solo + 4 PvP modes</div></div>
+        </div>
+
+        <div class="section-head"><div><h2>Featured games</h2><p>Pick your next challenge.</p></div><button class="text-link" data-page="games">View all ↗</button></div>
+        <div class="game-grid" id="featuredGrid"></div>
+
+        <div class="section-head"><div><h2>Recent activity</h2><p>Your latest gaming sessions.</p></div></div>
+        <div class="panel" id="homeActivity"></div>
+      </section>
+
+      <!-- SOLO ARCADE -->
+      <section class="page" id="page-games">
+        <div class="section-head"><div><h2>Solo Arcade</h2><p>Offline mode — every game works without internet. For PvP, visit Multiplayer.</p></div></div>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All games</button>
+          <button class="filter-btn" data-filter="arcade">Arcade</button>
+          <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+          <button class="filter-btn" data-filter="football">Football</button>
+        </div>
+        <div class="game-grid" id="allGames"></div>
+        <div class="panel hidden" id="noGames"><div class="empty-state">No games match that search. Try another word.</div></div>
+      </section>
+
+      <!-- MULTIPLAYER -->
+      <section class="page" id="page-multi">
+        <div class="section-head"><div><h2>Multiplayer Arena</h2><p>Create a server, share the code, and duel friends in real time.</p></div></div>
+
+        <div class="panel hidden" id="mpSetup">
+          <h3>🔌 Multiplayer is not connected yet</h3>
+          <p class="panel-sub">Real servers need Supabase (free). Paste your <b>SUPABASE_URL</b> and <b>SUPABASE_ANON_KEY</b> at the top of app.js, run the rooms SQL, and use Live Server (http://). Until then, Solo Arcade works offline.</p>
+        </div>
+
+        <div id="mpLobby" class="hidden">
+          <div class="settings-layout">
+            <div class="panel">
+              <h3>🚀 Create a server</h3>
+              <p class="panel-sub">You become the host and get a 4-letter code to share.</p>
+              <button class="btn btn-primary btn-block" id="mpCreate">Create server ≋</button>
+            </div>
+            <div class="panel">
+              <h3>🔑 Join with a code</h3>
+              <p class="panel-sub">Got a code from a friend? Type it here.</p>
+              <div class="game-controls" style="justify-content:flex-start">
+                <input class="game-input" id="mpJoinCode" maxlength="4" placeholder="CODE" style="text-transform:uppercase;width:120px">
+                <button class="btn btn-primary" id="mpJoinBtn">Join ▸</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>🌐 Open servers</h3>
+            <p class="panel-sub">Live list of public servers. Click one to join — or refresh.</p>
+            <div id="serverList"><div class="empty-state">Loading servers…</div></div>
+            <div class="game-controls" style="justify-content:flex-start;margin-top:12px"><button class="btn btn-small" id="serverRefresh">↻ Refresh</button></div>
+          </div>
+
+          <div class="panel">
+            <h3>🎮 PvP game modes</h3>
+            <p class="panel-sub">The host picks one of these once both players are in the room.</p>
+            <div class="game-choice-list" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+              <div class="game-choice" style="cursor:default"><span class="choice-emoji">❌</span>Tic-Tac-Toe Duel</div>
+              <div class="game-choice" style="cursor:default"><span class="choice-emoji">✊</span>RPS Duel</div>
+              <div class="game-choice" style="cursor:default"><span class="choice-emoji">⚡</span>Reaction Duel</div>
+              <div class="game-choice" style="cursor:default"><span class="choice-emoji">⚽</span>Blue Lock Penalty</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IN-ROOM -->
+        <div id="mpRoom" class="hidden">
+          <div class="panel mp-room-head">
+            <div>
+              <div class="setting-name" style="font-size:14px">SERVER <span class="code-box" id="mpCodeBox">····</span></div>
+              <p class="panel-sub" style="margin:8px 0 0">Share this code with your friend — they join from Multiplayer → Join with code.</p>
+            </div>
+            <button class="btn" id="mpLeave">Leave server</button>
+          </div>
+          <div class="panel">
+            <h3>Players in room</h3>
+            <div class="pchip-row" id="mpPlayers"></div>
+            <div id="mpHostControls" class="hidden" style="margin-top:14px">
+              <div class="setting-name" style="margin-bottom:8px">Pick a game & start</div>
+              <div class="chip-row" style="justify-content:flex-start" id="mpGamePick">
+                <button class="filter-btn" data-mpgame="ttt">❌ Tic-Tac-Toe</button>
+                <button class="filter-btn" data-mpgame="rps">✊ RPS Duel</button>
+                <button class="filter-btn" data-mpgame="reaction">⚡ Reaction Duel</button>
+                <button class="filter-btn" data-mpgame="bluelock">⚽ Penalty Duel</button>
+              </div>
+              <button class="btn btn-primary" id="mpStart" style="margin-top:10px" disabled>Start game ▸</button>
+            </div>
+            <p class="game-status hidden" id="mpWaiting">Waiting for the host to start a game…</p>
+          </div>
+          <div id="mpStage"></div>
+        </div>
+      </section>
+
+      <!-- LEADERBOARD -->
+      <section class="page" id="page-leaderboard">
+        <div class="section-head"><div><h2>Leaderboard</h2><p id="lbSub">Example players — sign in with Supabase keys added to go live.</p></div></div>
+        <div class="panel">
+          <table class="leader-table">
+            <thead><tr><th>RANK</th><th>PLAYER</th><th>BEST SCORE</th><th>STATUS</th></tr></thead>
+            <tbody id="leaderRows"></tbody>
+          </table>
+          <p class="panel-sub" style="margin:16px 0 0" id="lbNote">Named entries are examples until online sync is configured.</p>
+        </div>
+      </section>
+
+      <!-- SHOP -->
+      <section class="page" id="page-shop">
+        <div class="section-head"><div><h2>SI Coin Shop</h2><p>Turn your SI Coins into permanent passes and consumables.</p></div></div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-top">YOUR SI COINS</div><div class="stat-number" id="shopCoins"></div></div>
+          <div class="stat-card"><div class="stat-top">PASSES OWNED</div><div class="stat-number" id="shopPasses">0</div></div>
+          <div class="stat-card"><div class="stat-top">ROUNDS PLAYED</div><div class="stat-number" id="shopPlayed">0</div></div>
+        </div>
+        <div class="shop-grid" id="shopGrid"></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="page-profile">
+        <div class="section-head"><div><h2>Player profile</h2><p>Your gaming record.</p></div></div>
+        <div class="panel">
+          <div class="profile-head">
+            <div class="profile-avatar" id="profileAvatar">S</div>
+            <div class="profile-id">
+              <h2 id="profileName">Guest Player</h2>
+              <p id="profileEmail">You are playing as a guest.</p>
+              <button class="btn btn-small" data-auth-btn>Sign in</button>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-card"><div class="stat-top">SI COINS</div><div class="stat-number" id="profileCoins"></div></div>
+            <div class="stat-card"><div class="stat-top">PERSONAL BEST</div><div class="stat-number" id="profileBest">0</div></div>
+            <div class="stat-card"><div class="stat-top">ROUNDS PLAYED</div><div class="stat-number" id="profilePlayed">0</div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Profile picture</h3>
+          <p class="panel-sub">Upload a photo or pick an avatar icon. Google users get their Google photo automatically.</p>
+          <div class="avatar-editor">
+            <div class="profile-avatar" id="editorAvatar">S</div>
+            <div class="avatar-actions">
+              <button class="btn btn-primary" id="uploadAvatarBtn" type="button">Upload photo ↗</button>
+              <button class="btn" id="removeAvatarBtn" type="button">Remove photo</button>
+            </div>
+          </div>
+          <input type="file" id="avatarInput" accept="image/*" class="hidden">
+          <div class="emoji-row" id="emojiRow" aria-label="Choose an avatar icon"></div>
+        </div>
+        <div class="panel"><h3>Recent activity</h3><p class="panel-sub">Your latest saved results.</p><div id="profileActivity"></div></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings">
+        <div class="section-head"><div><h2>Make it yours.</h2><p>Everything is saved automatically.</p></div></div>
+        <div class="settings-layout">
+          <div class="panel">
+            <h3>◐ Theme</h3>
+            <p class="panel-sub">Dark, light, or follow your device (System).</p>
+            <div class="seg" role="group" aria-label="Theme mode">
+              <button type="button" class="seg-btn active" data-mode="dark">🌙 Dark</button>
+              <button type="button" class="seg-btn" data-mode="light">☀️ Light</button>
+              <button type="button" class="seg-btn" data-mode="system">🖥 System</button>
+            </div>
+            <h3 style="margin-top:20px">✦ Accent colour</h3>
+            <div class="accent-list">
+              <button class="accent-choice active" data-color="purple" aria-label="Purple" title="Purple"></button>
+              <button class="accent-choice" data-color="cyan" aria-label="Cyan" title="Cyan"></button>
+              <button class="accent-choice" data-color="pink" aria-label="Pink" title="Pink"></button>
+              <button class="accent-choice" data-color="green" aria-label="Green" title="Green"></button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>⚡ Experience</h3>
+            <p class="panel-sub">Fine-tune how the arcade feels.</p>
+            <div class="setting-row"><div><div class="setting-name">Compact layout</div><div class="setting-desc">Tighter cards and spacing.</div></div><label class="switch"><input id="compactToggle" type="checkbox"><span class="switch-track"></span></label></div>
+            <div class="setting-row"><div><div class="setting-name">Animations</div><div class="setting-desc">Motion, glow and transitions.</div></div><label class="switch"><input id="motionToggle" type="checkbox" checked><span class="switch-track"></span></label></div>
+            <div class="setting-row"><div><div class="setting-name">Sound effects</div><div class="setting-desc">Beeps and jingles in games.</div></div><label class="switch"><input id="soundToggle" type="checkbox" checked><span class="switch-track"></span></label></div>
+            <div class="setting-row"><div><div class="setting-name">Test sound</div><div class="setting-desc">Hear a sample.</div></div><button class="btn btn-small" id="testSound">▶ Play</button></div>
+          </div>
+          <div class="panel">
+            <h3>👤 Account</h3>
+            <p class="panel-sub" id="accountStatus">You are playing as a guest.</p>
+            <div class="setting-row"><div><div class="setting-name">Session</div><div class="setting-desc" id="sessionInfo">Guest session on this device.</div></div><button class="btn" id="signOutBtn">Sign out</button></div>
+            <div class="setting-row"><div><div class="setting-name">Sign-in method</div><div class="setting-desc" id="accountProvider">—</div></div><button class="btn btn-small" id="googleBtn2" type="button">Continue with Google</button></div>
+          </div>
+          <div class="panel">
+            <h3>▤ Progress & data</h3>
+            <p class="panel-sub">SI Coins, passes and scores save per account on this device. Export a backup any time.</p>
+            <div class="setting-row"><div><div class="setting-name">Export progress</div><div class="setting-desc">Download a backup file.</div></div><button class="btn" id="exportBtn">Export ⬇</button></div>
+            <div class="setting-row"><div><div class="setting-name">Import progress</div><div class="setting-desc">Restore from a backup.</div></div><button class="btn" id="importBtn">Import ⬆</button></div>
+            <div class="setting-row"><div><div class="setting-name">Reset scores & coins</div><div class="setting-desc">Clear this profile's progress.</div></div><button class="btn" id="resetScores">Reset</button></div>
+            <div class="setting-row"><div><div class="setting-name">Reset appearance</div><div class="setting-desc">Restore the default theme.</div></div><button class="btn" id="resetAppearance">Restore</button></div>
+            <input type="file" id="importInput" accept="application/json" class="hidden">
+          </div>
+        </div>
+      </section>
+
+      <!-- ADMIN -->
+      <section class="page" id="page-admin">
+        <div class="section-head"><div><h2>Admin Control</h2><p>Click a player to manage gifts, passes, bans and view their profile.</p></div></div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-top">ACCOUNTS</div><div class="stat-number" id="adAccounts">0</div></div>
+          <div class="stat-card"><div class="stat-top">SI COINS IN ECONOMY</div><div class="stat-number" id="adCoins">0</div></div>
+          <div class="stat-card"><div class="stat-top">ROUNDS PLAYED</div><div class="stat-number" id="adRounds">0</div></div>
+          <div class="stat-card"><div class="stat-top">BANNED</div><div class="stat-number" id="adBanned">0</div></div>
+        </div>
+        <div class="panel">
+          <h3>Accounts</h3>
+          <p class="panel-sub">Tap a player name to open their profile card with all actions.</p>
+          <table class="leader-table"><thead><tr><th>PLAYER</th><th>PROGRESS</th><th>FLAGS</th><th></th></tr></thead><tbody id="adminRows"></tbody></table>
+        </div>
+        <div class="panel">
+          <h3>Change admin password</h3>
+          <p class="panel-sub">Stored on this device only.</p>
+          <div class="game-controls" style="justify-content:flex-start">
+            <input class="game-input" id="adNewPass" type="password" placeholder="New password" aria-label="New admin password">
+            <button class="btn btn-primary" id="adSavePass">Save password</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">© 2026 SOLLI-GAMES · PLAY. COMPETE. EXPLORE. · Staff? Type <b>/admin</b></div>
+    </div>
+  </main>
+</div>
+
+<!-- SIGN IN MODAL -->
+<div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal">
+    <button class="modal-close" data-close-modal="authModal" aria-label="Close">×</button>
+    <h2 id="authTitle">Ready to <span class="gradient-text">play?</span></h2>
+    <p class="modal-intro">Your SI Coins, passes and scores are saved per account on this device.</p>
+    <button class="btn btn-block google-btn" id="googleBtn" type="button">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.5 6.1 29.5 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.5 6.1 29.5 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C41 35.4 44 30.2 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+      Continue with Google
+    </button>
+    <div class="auth-divider"><span>or with email</span></div>
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-auth-mode="signin" aria-pressed="true">Sign in</button>
+      <button type="button" class="auth-tab" data-auth-mode="signup" aria-pressed="false">Create account</button>
+    </div>
+    <form id="authForm" novalidate>
+      <label class="field hidden" id="nameField">Player name<input id="authName" type="text" maxlength="24" placeholder="e.g. NeonWolf" autocomplete="nickname"></label>
+      <label class="field">Email<input id="authEmail" type="email" placeholder="you@gmail.com" autocomplete="email"></label>
+      <label class="field">Password<span class="password-wrap"><input id="authPassword" type="password" placeholder="At least 6 characters" autocomplete="current-password"><button type="button" class="password-eye" id="passwordEye" aria-label="Show password">👁</button></span></label>
+      <p class="form-error hidden" id="authError" role="alert"></p>
+      <button class="btn btn-primary btn-block" id="authSubmit" type="submit">Start demo session ↗</button>
+    </form>
+    <p class="auth-note" id="authNote">Demo mode: add your Supabase keys in app.js to enable Google, email accounts and multiplayer. Staff? Type /admin.</p>
+  </div>
+</div>
+
+<!-- ADMIN GATE -->
+<div class="modal-backdrop hidden" id="adminModal" role="dialog" aria-modal="true">
+  <div class="modal" style="width:min(430px,100%)">
+    <button class="modal-close" data-close-modal="adminModal" aria-label="Close">×</button>
+    <h2>Staff <span class="gradient-text">access</span></h2>
+    <p class="modal-intro">Enter the admin password to open the control panel.</p>
+    <form id="adminForm">
+      <label class="field">Password<input id="adminPass" type="password" autocomplete="current-password"></label>
+      <p class="form-error hidden" id="adminError" role="alert"></p>
+      <button class="btn btn-primary btn-block" type="submit">Unlock panel ↗</button>
+    </form>
+    <p class="auth-note">Default password: <b>solli-admin</b> — change it inside the panel.</p>
+  </div>
+</div>
+
+<!-- ADMIN PLAYER POPUP -->
+<div class="modal-backdrop hidden" id="playerModal" role="dialog" aria-modal="true">
+  <div class="modal" style="width:min(560px,100%)">
+    <button class="modal-close" data-close-modal="playerModal" aria-label="Close">×</button>
+    <div class="profile-head" style="margin-bottom:8px">
+      <div class="profile-avatar" id="pmAvatar" style="width:64px;height:64px;border-radius:19px;font-size:26px">?</div>
+      <div class="profile-id"><h2 id="pmName" style="font-size:20px">Player</h2><p id="pmMeta">—</p><p id="pmFlags"></p></div>
+    </div>
+    <div class="stat-grid" style="grid-template-columns:repeat(2,1fr);margin:10px 0 6px">
+      <div class="stat-card" style="padding:13px"><div class="stat-top">SI COINS</div><div class="stat-number" style="font-size:20px" id="pmCoins">0</div></div>
+      <div class="stat-card" style="padding:13px"><div class="stat-top">BEST SCORE</div><div class="stat-number" style="font-size:20px" id="pmBest">0</div></div>
+      <div class="stat-card" style="padding:13px"><div class="stat-top">ROUNDS</div><div class="stat-number" style="font-size:20px" id="pmPlayed">0</div></div>
+      <div class="stat-card" style="padding:13px"><div class="stat-top">LAST SEEN</div><div class="stat-number" style="font-size:13px;font-weight:800" id="pmSeen">—</div></div>
+    </div>
+    <div class="setting-row"><div><div class="setting-name">Gift SI Coins</div><div class="setting-desc">Adds to their balance instantly.</div></div>
+      <span style="display:flex;gap:6px"><input class="game-input" id="pmGiftAmt" type="number" min="1" value="100" style="width:92px;min-height:38px"><button class="btn btn-primary btn-small" id="pmGift">Gift</button></span></div>
+    <div class="setting-row"><div><div class="setting-name">Game access (pass)</div><div class="setting-desc">Grant or revoke a permanent pass.</div></div>
+      <span style="display:flex;gap:6px"><select class="game-input" id="pmPassSel" style="width:auto;min-height:38px;padding:8px"></select><button class="btn btn-primary btn-small" id="pmGrant">Grant</button><button class="btn btn-small" id="pmRevoke">Revoke</button></span></div>
+    <div class="setting-row"><div><div class="setting-name">Moderation</div><div class="setting-desc">Ban blocks sign-in · VIP shows a badge.</div></div>
+      <span style="display:flex;gap:6px"><button class="btn btn-small" id="pmVip">Make VIP</button><button class="btn btn-small" id="pmBan" style="border-color:var(--danger);color:var(--danger)">Ban</button></span></div>
+  </div>
+</div>
+
+<!-- GAME MODAL -->
+<div class="modal-backdrop hidden" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" data-close-modal="gameModal" aria-label="Close game">×</button>
+    <h2 id="modalTitle">Game</h2>
+    <p class="modal-intro" id="modalIntro"></p>
+    <div id="gameMount"></div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
