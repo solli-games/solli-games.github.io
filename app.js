@@ -2,7 +2,7 @@
 "use strict";
 
 /* ======= PASTE YOUR SUPABASE KEYS HERE (auth + multiplayer + leaderboard) ======= */
-const SUPABASE_URL = "ojyohdubyqbzwrfubiza.supabase.co";        // https://xxxx.supabase.co
+const SUPABASE_URL = "https://ojyohdubyqbzwrfubiza.supabase.co/rest/v1/";        // https://xxxx.supabase.co
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qeW9oZHVieXFiendyZnViaXphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxMzQ0NTIsImV4cCI6MjEwNzcxMDQ1Mn0.R89dAAB9FDKnjIGGtoLXm5V73JLA-erXd_WjWsAg4dU";
 /* =============================================================================== */
 
