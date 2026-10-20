@@ -3,7 +3,7 @@
 
 /* ======= PASTE YOUR SUPABASE KEYS HERE (auth + multiplayer + leaderboard) ======= */
 const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL";        // https://xxxx.supabase.co
-const SUPABASE_ANON_KEY = "PASTE_YOUR_ANON_PUBLIC_KEY";
+const SUPABASE_ANON_KEY = "sb_publishable_WTtJ0Xn3DPeYrm1eqLhskQ_qw2TWri2";
 /* =============================================================================== */
 
 /* ---------- Helpers ---------- */
